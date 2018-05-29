@@ -1,10 +1,8 @@
 <h1>Post-It Notes</h1>
-<%= link_to 'Create a new note', new_note_path %>
 <% @notes.each do |note| %>
   <h3><%= note.title %></h3>
   <%= note.body %>
   <br>
   <%= link_to 'Show note', note_path(note.id)%>
-
   <hr>
 <% end %>
