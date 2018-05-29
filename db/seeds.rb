@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+20.times do
+  Note.create(
+    title: Faker::HowIMetYourMother.catch_phrase,
+    body: Faker::HowIMetYourMother.quote,
+  )
+end
+
+puts 'seeded'
