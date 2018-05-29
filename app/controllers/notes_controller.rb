@@ -11,7 +11,22 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  def create
+    @note = Note.new(note_params)
+    
+    if @note.save
+      redirect_to note_path(@note.id)
+    else
+      render :new
+    end
+  end
+
   def edit
     @note = Note.find(params[:id])
   end
+
+  private
+    def note_params
+      params.require(:note).permit(:title, :body)
+    end
 end
